@@ -1,0 +1,28 @@
+spring:
+    security:
+        cors:
+            allowed-origins:
+                - "https://sovcomstudents.ru"
+                - "http://sovcomstudents.ru"
+                - "http://*.sovcomstudents.ru"
+                - "https://*.sovcomstudents.ru"
+                - "http://localhost:3000"
+        oauth2:
+            resource-server:
+                jwt:
+                    issuer-uri: ${ISSUER:http://localhost:9000}
+    servlet:
+        multipart:
+            max-file-size: 200MB
+            max-request-size: 200MB
+    data:
+        mongodb:
+            uri: ${MONGODB_URI:mongodb://localhost:27017}
+            database: storage
+    messages:
+        basename: messages
+        use-code-as-default-message: true
+url:
+    serverUrl: ${SERVER_URL:http://localhost:8084}
+server:
+    port: ${APP_PORT:8084}
